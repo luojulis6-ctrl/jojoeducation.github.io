@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>乔乔文化｜留学咨询与英文培训</title>
+  <style>
+    :root {
+      --bg: #fbf8f3;
+      --text: #1f2933;
+      --muted: #657080;
+      --primary: #0f5a64;
+      --primary-dark: #083f46;
+      --accent: #c69245;
+      --soft: #eef4f2;
+      --card: #ffffff;
+      --border: #e7dfd4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 248, 243, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary-dark);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .brand svg {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-text strong {
+      font-size: 1.05rem;
+    }
+
+    .brand-text span {
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 78px 24px 72px;
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .brand-preview {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 18px 10px 12px;
+      margin-bottom: 22px;
+      box-shadow: 0 12px 28px rgba(31, 41, 51, 0.05);
+    }
+
+    .brand-preview svg {
+      width: 62px;
+      height: 62px;
+    }
+
+    .brand-preview strong {
+      display: block;
+      font-size: 1.28rem;
+      color: var(--primary-dark);
+      letter-spacing: 0.04em;
+    }
+
+    .brand-preview span {
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 0.86rem;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.35rem, 5vw, 4.4rem);
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+      color: var(--primary-dark);
+      margin-bottom: 22px;
+    }
+
+    .hero-text {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 680px;
+      margin-bottom: 30px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      transition: 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(47, 93, 98, 0.12);
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 22px 52px rgba(31, 41, 51, 0.08);
+    }
+
+    .hero-card h2 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero-card li {
+      padding-left: 28px;
+      position: relative;
+      color: var(--muted);
+    }
+
+    .hero-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px 78px;
+    }
+
+    section {
+      margin-bottom: 72px;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--primary-dark);
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 12px 28px rgba(31, 41, 51, 0.04);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.18rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .card ul {
+      padding-left: 19px;
+      margin-top: 10px;
+    }
+    .photo-grid { display: block; max-width: 920px; }
+    .photo-card { overflow: hidden; border-radius: 26px; border: 1px solid var(--border); background: var(--card); box-shadow: 0 18px 42px rgba(31,41,51,0.08); }
+    .photo-card img { width: 100%; display: block; object-fit: cover; aspect-ratio: 4 / 3; }
+    .photo-card figcaption { padding: 14px 18px 17px; color: var(--primary-dark); font-weight: 700; background: rgba(255,255,255,0.94); }
+
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .feature-box {
+      background: var(--soft);
+      border-radius: 26px;
+      padding: 30px;
+      border: 1px solid #dce8e4;
+    }
+
+    .feature-box h3 {
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .step h3 {
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .contact-panel {
+      background: linear-gradient(135deg, var(--primary) 0%, #1d737e 100%);
+      color: #fff;
+      border-radius: 30px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(1.8rem, 3vw, 2.55rem);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .contact-panel p {
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .contact-list {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .contact-list p {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 28px 20px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .two-column,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .grid,
+      .process,
+      .photo-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .photo-card.featured {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .brand-preview {
+        border-radius: 24px;
+        align-items: flex-start;
+      }
+
+      .grid,
+      .process,
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-card.featured {
+        grid-column: span 1;
+      }
+
+      .contact-panel {
+        padding: 30px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a class="brand" href="#home" aria-label="乔乔文化首页">
+        <svg viewBox="0 0 100 100" role="img" aria-hidden="true">
+          <path d="M12 70 C28 63, 38 64, 50 78 C62 64, 74 63, 88 70" fill="none" stroke="#0f5a64" stroke-width="9" stroke-linecap="round" />
+          <path d="M18 78 C34 72, 42 73, 50 84 C58 73, 68 72, 84 78" fill="none" stroke="#0f5a64" stroke-width="7" stroke-linecap="round" />
+          <path d="M20 54 C21 28, 38 16, 64 24" fill="none" stroke="#0f5a64" stroke-width="6" stroke-linecap="round" />
+          <path d="M24 45 C39 48, 54 47, 70 42" fill="none" stroke="#0f5a64" stroke-width="4" stroke-linecap="round" />
+          <path d="M36 25 C30 39, 28 51, 31 62" fill="none" stroke="#0f5a64" stroke-width="3" stroke-linecap="round" />
+          <path d="M50 20 C50 38, 50 50, 50 66" fill="none" stroke="#0f5a64" stroke-width="3" stroke-linecap="round" />
+          <path d="M50 82 C55 60, 66 45, 77 30 C64 47, 55 60, 50 82Z" fill="#c69245" />
+          <path d="M78 18 L81 26 L89 29 L81 32 L78 40 L75 32 L67 29 L75 26Z" fill="#c69245" />
+        </svg>
+        <span class="brand-text">
+          <strong>乔乔文化</strong>
+          <span>留学咨询 · 英文培训</span>
+        </span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">关于我们</a></li>
+        <li><a href="#services">服务内容</a></li>
+        <li><a href="#gallery">教学环境</a></li>
+        <li><a href="#process">服务流程</a></li>
+        <li><a href="#contact">联系我们</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div>
+      <div class="brand-preview">
+        <svg viewBox="0 0 100 100" role="img" aria-hidden="true">
+          <path d="M12 70 C28 63, 38 64, 50 78 C62 64, 74 63, 88 70" fill="none" stroke="#0f5a64" stroke-width="9" stroke-linecap="round" />
+          <path d="M18 78 C34 72, 42 73, 50 84 C58 73, 68 72, 84 78" fill="none" stroke="#0f5a64" stroke-width="7" stroke-linecap="round" />
+          <path d="M20 54 C21 28, 38 16, 64 24" fill="none" stroke="#0f5a64" stroke-width="6" stroke-linecap="round" />
+          <path d="M24 45 C39 48, 54 47, 70 42" fill="none" stroke="#0f5a64" stroke-width="4" stroke-linecap="round" />
+          <path d="M36 25 C30 39, 28 51, 31 62" fill="none" stroke="#0f5a64" stroke-width="3" stroke-linecap="round" />
+          <path d="M50 20 C50 38, 50 50, 50 66" fill="none" stroke="#0f5a64" stroke-width="3" stroke-linecap="round" />
+          <path d="M50 82 C55 60, 66 45, 77 30 C64 47, 55 60, 50 82Z" fill="#c69245" />
+          <path d="M78 18 L81 26 L89 29 L81 32 L78 40 L75 32 L67 29 L75 26Z" fill="#c69245" />
+        </svg>
+        <div>
+          <strong>乔乔文化</strong>
+          <span>留学咨询 · 英文培训 · 海外学习准备</span>
+        </div>
+      </div>
+      <div class="eyebrow">留学规划｜英文提升｜申请支持</div>
+      <h1>用更清晰的规划，走向更广阔的世界。</h1>
+      <p class="hero-text">
+        乔乔文化专注于留学规划与英文能力提升，为学生提供从语言学习、申请准备到海外学术适应的一站式支持。我们相信，真正有效的留学服务不只是递交申请，更是帮助学生建立长期发展的能力。
+      </p>
+      <div class="button-row">
+        <a class="button primary" href="#contact">预约咨询</a>
+        <a class="button" href="#services">查看服务</a>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <h2>我们可以帮助你</h2>
+      <ul>
+        <li>明确适合自己的国家、学校与专业方向</li>
+        <li>提升英语表达、写作和面试能力</li>
+        <li>准备个人陈述、简历、推荐信等申请材料</li>
+        <li>建立更成熟的海外学习规划与学术能力</li>
+      </ul>
+    </aside>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="section-header">
+        <h2>关于乔乔文化</h2>
+        <p>
+          乔乔文化是一家面向学生与家庭的教育服务机构，主要提供留学咨询、英文培训、申请材料指导和海外学习准备服务。
+        </p>
+      </div>
+      <div class="two-column">
+        <div class="feature-box">
+          <h3>我们的理念</h3>
+          <p>
+            留学不是一次简单的申请，而是一次关于能力、方向和未来选择的系统规划。我们希望帮助学生在准备申请的同时，真正提升语言能力、学术表达能力和跨文化适应能力。
+          </p>
+        </div>
+        <div class="card">
+          <h3>适合我们的学生</h3>
+          <ul>
+            <li>正在准备本科、硕士或预科申请的学生</li>
+            <li>希望提升雅思、托福或学术英语能力的学生</li>
+            <li>需要个人陈述、简历、面试等申请支持的学生</li>
+            <li>希望提前适应海外课堂、写作和表达方式的学生</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-header">
+        <h2>服务内容</h2>
+        <p>
+          我们提供灵活、清晰、可持续的教育支持，帮助学生根据自身背景制定合适的申请和学习计划。
+        </p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>留学规划咨询</h3>
+          <p>
+            根据学生的学术背景、语言水平、兴趣方向和未来目标，协助选择适合的国家、院校、专业和申请路径。
+          </p>
+        </div>
+        <div class="card">
+          <h3>英文能力培训</h3>
+          <p>
+            提供英语口语、写作、阅读、面试表达和学术英语训练，帮助学生提升真实沟通和学习能力。
+          </p>
+        </div>
+        <div class="card">
+          <h3>申请材料指导</h3>
+          <p>
+            支持个人陈述、简历、推荐信、研究计划和作品集说明等材料的结构梳理、语言优化与表达提升。
+          </p>
+        </div>
+        <div class="card">
+          <h3>面试与表达训练</h3>
+          <p>
+            针对学校面试、奖学金面试和英文自我介绍，进行模拟训练、表达反馈和逻辑优化。
+          </p>
+        </div>
+        <div class="card">
+          <h3>海外学习准备</h3>
+          <p>
+            帮助学生提前了解海外课堂、论文写作、学术诚信、小组讨论和跨文化沟通方式。
+          </p>
+        </div>
+        <div class="card">
+          <h3>定制化陪伴服务</h3>
+          <p>
+            根据学生不同阶段的需求，提供阶段性规划、进度跟进和个性化学习建议。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="section-header">
+        <h2>教学环境</h2>
+        <p>乔乔文化希望为学生提供开放、互动、鼓励表达的英文学习环境。课堂展示先保留一张清晰主图，避免页面显得杂乱。</p>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo-card">
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA4KCw0LCQ4NDA0QDw4RFiQXFhQUFiwgIRokNC43NjMuMjI6QVNGOj1OPjIySGJJTlZYXV5dOEVmbWVabFNbXVn/2wBDAQ8QEBYTFioXFypZOzI7WVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVn/wgARCAHCAlgDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAECAwQFBv/EABcBAQEBAQAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAevV0RORR3keZz+qdnjavbo8TX7ThnFuza5fR2xmNpiY1TbIuQRcgiSCKmoiSREkiJJCGCUWNESSrRaUlXKsLCDJOEkaciCumZVtkYH0Awy2BlloCgvRSXKyEmAmCAEpJEAaQJsTRU07GJhxO5xE83uxbz0ditmq1aiDkCJAhtYtkIaEMIqQRUkU13iUFxWY0IodyK3IIsZtYMjAAAABMENAAAAAAAICkNAAIaBNAAmgCbE0VgWDAfE7fETznR53RPS3VXTSUkLJs87Z0KefUnRqwkaaqws9N5P1k1YmKkwSYVg0iMqIwipBEYRbDYAgQhVxUFpXAvKWWKlk512QAAAgACZSAENAmCAEMLwJoAKgLBpj4nb4iec6PO6R6a2q2aaaDzvovPWVV9V2ch2KSCtiUep8x6ebsAlQAgCDTsQ0IaBMEMIsZpGIlIqIyEwAAEwABDBAACRiKaABACYhoAC8CaACoFY3FkuJ2+InnOlzekemupumgaDzvovPWTlGyzEbEmU6POM/p/M+mzqwBUNCGLABBNAAAAAgGGkBASJKDqRBklFkgIAAApLPXG2MZ2VuxECYVFgJpgmCALyLmmIK01qDTJcPucSTznS5vSPT21WzTADzvovO2aLcLs0Z74Esl+ZKvTeY9PnVgCiaAAgAAmIAM+jj5uFduGd1dXzfe3z3AWCapAAmCkmAAAAAZnbXLOYIArGgAQAAhoAC2MYrMUyKapSjIlw+5xJPOdLm9E9PdTdNMAPO+i87ZtlyZXO6fLDsceysq9N5n02dWgKJoACAAmAmBVzdvOxvXm11TWbRdmuO+BvAESRAqRFEysLCCLFCYNKKYoS+dF4RkqgrAQMQ0CaAACYDjJYJqm4yJcTt8STznS5vRPT3U3TTADzno/OWdCzjFzfmAACr03mPT51aAomgAIAUA4QMxYOrw8b2UbVNU15dzPecJ9OYmUhAwIAAQDQUARFsRMAAoTBAAgAAAAHNUlCJJrQlGRLidviSec6PO6J6e6m6aYAec9H5yzTdgdzqhnRUgKvTeZ9NnVoCiaAAiBQAAUSw4+6rltW0aLeb0MtzPav5W7eLwjqSIBIgEwIQAAAABCJamrAgyRFElFklGYAAAWQIStErAC1SjIlxO3xJPN9HndE9RdTdNMAPOej85c6JUXZrgQLcGrPZn9N5n0y2gKJoAZACwHFas12Lnu8rulcbrrMNfRqsy3RUdZM3iI1QpRGJoDJUMExGQnJbBSsg5iAgaAEAAAAJycsSaIJrQlGRLi9riSeb6HP6R6a+i+aYAec9H5y5oBWNxYAiv03mPTTVwCiYJgQaEYRlw5dObn0lrx7CWnJo1mTFc0V3VS9Jxe8sgEijFm9Q5+2yYAAACqgrJdTrtsQ0gChkXQACYIAtFGWShYVpmhKMofF7fETzXQ5/QPT6M+hpgQeb9JXZ5helinnT0ETgru1nD9Ll1LcMVAAAQYIQnVLgyaufz6bNWe6o3UXJYD1jO1CXrT5V9mzPDJNZVdsmtFzN8SUWMBSEwxraVn0ACZIRZUHJDQAAABxOMVS26+bM9B1vG6a9W/MRs9XxOdmjJv5209ZozaGpAQJoApLTlSrprHsE2gAEADTIA0WTZz5qqvRLGqriEs7MxW3OsBspKLmnfHWPbWtZvVEbNRjhG8wWGwxs1mWRoM7LyhlxSFxSFpWFhAJqIkiJXiqhRJIWWzF2pcp3LNZ4C9FM81X6prVpotW1wYwjGXyuvCVyQkujzWe1n5/0CgFAAmBBpoZ9DXlZu5kzrlS6Zm816+cbq/Nmseox8Hqr6ZhrKTiLlZOdLqorrjRv5Fqern5XsV0pJqMEAAAEMENAAAAhi+LEI91HRzvP0YWZ31ZVW9OQACEQsrkXuErJYN3njnVOuBRRMgzd6/yHrCYlQqMWXXXMR0kLSTpC1RlnVUSuay4tWOOO0981txXy+zlmepo5WrjHNTjkgCymTHKCPTbvPejtQwQ0gMpKSENCGQmAhh4o9NhzrPsVmOrsr02bxHTkxCCEsWmWyrnYeV9B5wzwlCICBuLOpbCa9vnyWs87pcTtRDTbRL1Ssq11C1VR84np6uHuxvRzuvxpeS0b5uUQ9nOvRVPE9DxDj1JQ3EJEQaTNvWjrM8rSq5SQ5VoueaJtlzg6UuSjrvkM6xyQ6ts3NZMnVM2l2Q1lCBiAQhAE7KqrMHG04pSEoJBTiJoXodTkeys5uH0STxnY7DXPxexkMhudmC2dUq5PT5aVpqWSiEGmOUbD2NqlouD6Dj46eeq2ZbziAoAPZn6mddkZrKY7ExiGCGhDBEgipsgTDZBxlEVS2OAOMo2AgBAmohw7MBPMxFXJF9r17xzYdu5fOeliS3vNRL1rOB1DbLmxl61fLLOhg0Z4y8nq82zOpRlACDTV7MfWT0cqZ1ZGm48zzfR8LNzElYmdCWHTr6+ek1I3ziSZEkEVMIKYQJhAmECYkCRV1brlsoIS3OmZOUGIFYAh4N3BMjQUSrmkdWXr2Odte8xc6E0SokWJTmsXa4fezquE4y1QtgXV21pkxb81nMhOtWJxBreuLu1Vp0uZQENnKmdTHnit7zuOhs43VmunqhLWWADQMAaAAQxAwAAAAjXOuUzX0pO7JoW11SLYq0oLbbMvnfW+YMUSBCUZo+3yOvvMVKWs1UTgkrM1pZfTFYdvn9Hn0rhOiWUK4G2CkZab6bOPCcAa2Rdeqak80Qi4xQWVk1Bk4xmFkUX9ngh7B+U3r3BMABiBoAAGIGAABCqwlzw00mS6Ey50Wlk6JGyWVmjz3a5us8bPtxRIJGnoY9XTEokLK8+jCmyuSTRbgsXd0eR0M6kqsnPrbZWzpZwsz025bOZWBLq4dYqnErrnXDrmEAQyASSY5RRKUWTcA39bzeg9UV2KAACGAAAAAAUPlb5Z1yuFm28Y5XS53Rs3mSOdbaufUmnZyervNXK7sOnLg29CE052QsIOCV57klGrn3y3jjTZYbN3Lsl3Pl9rHSyraS8fn+ojXha/a8zN5ZCrWbiVZGEoxCSQ4qJNRBiYSGAACCTizq97x/ol3gAgAAGgYgYB4z0/lfQR0niwr0c3Jhm+jxcSGp2YV6bIalns328bVZMjLtxVlbFTKvOnF0wUOSZVdXnVlqjVkki23JYl3b43Uz06FOHLz6dPHy8h0c/O23OeVenWSFlQouMomiKkECaEwAAAABANi6XNkexn5ntrqAAAAAAAA8XIaTNENZpqvRVHWpc+vLpFZGsshVE1GSRtv5j1OiZLN8oLTWtVs6iCsUuA6mvl240t7zcVtmddSh0Dklttyczp8vUWzPYmfZh0rOE84AQ00CAAQ0AAAIBAMQTIhZbnZ7CzkdRZkGSEDAACzxkZxjTOm3eIxmkUgWCsjLZDRCXPCyBFNSgIdufTvGi/AaxtUNHLs5Qr59ehl5lNzteCes9fFGrU6u7FdLwu9yeynL5vR5xbFxspvo0ylSkApigIkAIAAQxAJoQJZOykkkDaE6PrPFeyWGbXlimzPZFulPQAPH1WRuJW5ZmhZyro1KWcJEt+zBosvqprLqYgkyWGiidmlqW8DQV1TjEa7nLQ7a1ddlcvQlkivS6OXVLzabC5oruRkNUVyvQoqjfUVNxJEWNACGJgCEqYHr+VT05PNw7/ABSpyiuv03B3xPLb1Fq0i1ACwAPHLqhxpbsESiWla9DKzjLflXLqzbEzQtiVA5YMBwaNCU9YipKoOREkTshGyJmVleelttWxPT89UrzMevJDYDnUFpSFzzsuVchoZFyCuNyKVZFUMEyab6d1UuO2wxut2Esuj5/0G8dAz26kwLAEABuUlLXi6CrjYPTxTkvpUWZXOBw7J5ZdGXqYrMc5qKSwKydMtkq56xMi6lFJLI1RmpoJYqSll1+N6ayKtRzeT3uBLaJiTQJoABAAmCYi2VAWREBGamy23nvTnthNVhnS6rRi6c8/Tw7bARU7syOhdyWds4YezQSpAKAUIIVYHneeFnZ5oWZmDKYCiEqmAwKjWEtjDNrkFRAJ+lCpRBKvNhLOQCQAAIAQAIAAAAYAAS7tQc+t8AlwUB05dLnhrL3ATzhQADAQB//EAC0QAAIBAgUDBAIDAQADAAAAAAECAAMRBBASICETMTIiMDNABUEUI0JQJDRD/9oACAEBAAEFAjhqRhwdOHBCHAmHB1YcLVENJxPUJqaajNZief8Ax7iahNQmsTXNUuZzNJmlppaaWmidMTppNI+hYGGjTMx1FKc/YFqg+wzBZe4vNQmtZrE1zVLzmWaaHnSedFp0J0BOis6SzQs0j7v5HxHc/OstLfSYkT1z1yzTReaBNAmgSwzHf/kfkfEeR+ZfqN39od/+R+R8R5N8q7TiEEOLWHGiHGmHGVIcXWn8mtErVDUXe3tjv7d4Tx9v8j4jyb5F2vxVOVpaWlovyrvPt/vIzmXn+Scu5I5tNMt9z8j4jyb5F21fkztn/wDVd59+0sJb/h/kfEeR+RdtX5Eb+voqzMLNn/8AVd7f9T8j4jyPmu2t8gey9Yw8nM/Ku9vu3yPbmczmcyxljP17v5HsPI+a7a3yLTLL/HgoGVFQU2pgmH5V3t7N9xljlaWlpbe55iG6/V/I9h5HzXbV+QVF6fUUjriF7p1uYfkXe2+pU0ypV1NdhKFUjdeXl5eX9gj1RO31fyPYeR8121vk0MQaTidA2FEkdF7Q/Iu9tx7MvVdKaIHRXi+mpSbUmy0tLe0foX9j8jB5HzXbW+SkVFJHGrUppvUW1wwh813tufsjhQanpWvqOJW0wjer6BaXim+ZnMsfYv7P5GDy/a7a3yQErnrbTD5rvbdWNolDVT0AUlp04wulL01czOZzOZzLGWlpaacz2yTv7w3/AJGDy/a7a3y0LGl/nEfJmfNd7bsR2Uno31LzqqtpoUBB9CwlhLe7b2fyEHkYu2t8t5c7W813tufku/SrlQyiwFc6modl7Z2+4Mr7vyEHlF21vlpopplUjInS0j+Pk3ku9txcaqo1Ckb05U4elB3+vxON1sjv/IQeRi9tlb5hUYJ1Xv1XK9RtGTeS99zbW5lQcWJijSZUHNK+kObo98jOZzOfaLWgfK15plpaaZplppn69z8hB5GL22VvmVQ9FqCrDTFugLGgBk3de+5tmq4LS94JoBhQzpkwqKbsOUPryvLy8vL+x3NoviZYy3tX3jL8hP8ARi7a3zLVsi1AzPV5Nbk1QYxBLd177mzbkPDBB2Xvk63Xuq+WdsrCWlt4yXx+r+Qn+jF21vm3N3XvubY55bsnbaRZv9Dt7um07wCw+r+Qn+onbZX+bc0XvubNuxEaU+2Sni8vHPBg7ZcxmAL14jVGAvuPAvLxDxt4+h+Qn7aJ22V/m3GL33Nm/Zr3qH0p4fqKZfKqfQey+M1CVKlhVqaovEpelNUvtfxtknfbaAW3kgQOp34+f6bsm0iWM0zROmJ0knQSdCnFvfc2bxpWN1Xx/wAxO9rZYj4n4priLAVGaGHk9FjKdA3tLS31a+LMLm4aLinSUsaDByM8f2/Z7J9Rs6jGwRmj4ctFpsIFMFOactdmqnVSPNEGK9oqO8ChRNI+wcwZxKVVra2moy8qHL/Cb3qJTDY5IMYkTE039pu+R8w3GqdQX6sNYCJUDRjZdRmllg6jRcMYlHQcuZzCTNemdW81NNbTW01mazNZmua5rmua5rmuaxNYmsTUJqE1CahCbnZhxc58ZEGJBtxFbpJUZmNyJrl5QxLUorB13t3yqITOm8JALHkK5nRECc6RZWoKzYijZT1CL2zJsKuJjVmM1GajKNcghgfsYZLKtCnbo0500mlZbL9jYTYYh9bZcZ4CrZt7d827dO802gWfvFcUyb54MwdsjwMRW1m+ROV4tQiUa9/q4dAxqUuaPgDcbhsxb2Rjztw3/sZkgQMrZnvqEuMjP0YZf14345+phT6l8csY8OYjc5g2mGqa1+lSW5WwLL6ALCn4bhsxb3qGHbhRqrl1EvLx6V4VZWNVrjVUYKFFgZ0xOmMjwDDGmN8c8Of7RUAHWWHELMQ2p/Ywbf2/QsZaKLAciLyfaY2FQ3O7CC5o3FTWNFV2WfyKso6qlI0mlNnXbWbpqtdKk/UteY7tmnDpyNM0CYxdLn2MPfX1HnWeddp/IM/kT+QJ/IWddJ1knVWa1moS8vL5YlNR6cAy0tKSNq9rENam+/CW00uTwGrkdP8AWC+Midm1rNUvNUxRvSbumKqLExNNoJj2vU2UPhyxp1ezh6WlNM0zTNM0TROnOmJ0xOkJ0p0p0poaWef2RMnpBotIh/cxL3Zp+tuGBc06FVGNNpptlgQY0cPrLiB0nVIiktKnY5qzLGYudlPinlV5ZxzuoKDU9y0tLS0tALD3qr6UY8HucrX2YZtNYZ2gWYhP67kHWJdbAKxFJCKiKqt33oLtniF0lxCNqC5RbP8Ar7zOFlarrZzB3OSLeFUE6WqdF5YqadZynXafyYlYO3VWa1moZFFM6NOVBTUtps3ffhRevmReYkWqnYOYBpmHXU/1L8+yxsK1SLGMWHJaRMFJVirc8CcGKoEMbgYOoxxR2amEpOzPX+SVBY5nZgR6xL2nVQGYijrL0yudpRpxaYdkUIPonL9fv2cQ9o3qP6PfKkl4DomsTqGWl5e01gy11wI/8k7aHyV/klYcnM7MLanR/kLbEVGaB+KWIanHxZaGqTNc1KZTCGdpSTSPpHKoeL3CnjIbsQ3r/Td/3lS8cll/VLzgy/owP/snbQ+St8krjg7Uw5MFFBK/jquH5G4TDVgDqB+me8PMU+ocMM+8PGzEfNDBD2XyUCxvAsqG0/d8gZ3GD9OL20fkrecr+J2UqegEwtCeGWXh23gyDEGjidUuPomXhjrFa+0czQYKYhmKH/kfs9hDKXcZAyoZ+u0UwicygL4mGFgJrELzDterW8xK5smdJLkmEwy81ZES2wCXl8r86zKOIIIII98wmXjcFWvL5iXmrLFfMeMl7ykOcrx+ynNHh4innuDCTeo8Ap2p0lRqvmJXtpJyUXPiMjO0OV5eXlxL+xSrNTlCv1D7+gRrLLXNp6hO+V5e+RcKKq6mrLpn7ii5X0vlfI8EQ5LUKwMplJpX+NKOqdGpqvUEw9Rnar5iYkzvDKI2GGDK0tLZ29ilUKOjB19y87QvAJaObHqm9KurS+WqNXAhSoxo2viE1xUIZxY0u7LcA5HKoIrTvnpgBlCqVZq4veCmKkp0RTNSiWPRcTEI+pr5D0q7Wg33l5f28LW0sDf3MNXvNV5pgE7Ss3pp0KlSLgLQ3WM9SMwM6loNbzDKyZWF6lHVFpacjkTCYYeCpnfK+Q4itNWh6HbMm0ZgY9KlZz6xy5+paYO/S9tTpZbMAIzBA76xpi1kRamKvF9cbDVYuEgpU0gqJONJ2HtmTDGggl89UvH5lDwhqqIahMasoj4iK+uN5J33290GUMSyxWDD28NXUUP5aSriUcdQCGreajklcEL0pqrCGohmmiZSARMhLwnLtGbICHuK+7+5U2eaFMf3qO5qKZ7um0aV0b/jbVGAavHGFYSvR+IQ+RT9g1pZSJSkfeYmkGf35hEbJ6o/0RH0gEAZPwhqLQDiyJVRQsl+g7z4tDlXHpf0uwZsw33ZcEKEgXVvANfmi7rCiqxQHlq6R5kW1epzz0GLRyx7vy0jwZg2F4FNPslWE11/vX9W12XRjG35XtT60jU5L+Y/LTtATkuLtXPS6Fm0y97/+VjZVBaeUtwUU03eSDe2j3mEgvUFRj1YwxzGAaJmGL6ADZ7zGXeJa/hCO5IPJU5AYMUzFtvF1e5lqcQ0/IR5bGZbyk8Z+Qrc5yLsugGFI6ap1P1Ms5lW2PC0PMB02vQO3EzrbqDbpbCSHPmGXQfVFkAamL6im4V9CZpvzRN1FxW0LmIrIqR5KB//EACIRAAICAgICAwEBAAAAAAAAAAERACAgEAJAMTISMEFR/9oACAEDAQE/AcHwOyYHYpoyg7CMEjJ3Xw+1uEyo7gHBwyuGPGR0lJqMAGYd+8cuRGDw7rjV2GPjdM5fuRmZJwX8AJdiOArD4+9ceSAh2aBZEy8iJWOPtB9ri0xBl8N7wibYhkv8ICDE0e889+YOox+JqOBBj3iwb39XLkkq85r/sJA2cfF8F//xAAhEQACAgICAgMBAAAAAAAAAAABEQAgEDABAjEhQVFhcf/aAAgBAgEBPwH/AJUGWo4Q8hoOhKA8v9XJc7ba2zjwA0xj5YnkFF9TN8rm/RGAIcBaZ1HrMD2mTkuHdHG7w8G+uPElc1uwG+fNd+ApKQOcZdeGUvk+ThzY7kqkYIhQfIdcZ7x67HMken3YDkt3Ft2A7Cy/Nz/8QAMRAAAgEDAwIEBAUFAQEAAAAAAQIAERAgITFBEjBRE2FxgSIyQqFSUsHhI2KR0fD/2gAIAQEABj8Cj7JY+SM80fJGea+ub7JGlIvlkT83RS6L8t5M3oyWJV1VeQZ4jM55NHkZRfxb0JINlv3zg9SaPIRyi/i3sl4pnNJ4r7NHkH0XtSxpGcm3/ZUmlCnRx4HxtKSX8Wz67u8jmhmaTDoy9x4PxtKS3ibUNUOMdwpTSJOjmXQm+ZqSzaLu07FOSAHML+le+Y/q8j2dKSJ3RZbp3HgdmpW+r5u71l0xtSzwTGaqOuHzklH02l4H0ZqVvq+buzY2aW+tdS8DJRjKLq4fOSUfTaXgfRmpW+r5u714m+rR0odWC+Kiqip4fOSU4+i0vA+jNSu9Xzdu7fYW+Q4xocj60/wmLnJKc5BZpSGqFP6s1K71fN3dp5pJ2eL0XidID7u2zklOOiM0pDUY92fTM1K71fN3Zun6uH+J61EKUui/sNd0olJ7VLm1r7XkenNSu9Xzd2boHF5lH+J6NPSAAqFVCmfTNVgNJ7Vs4tMyvI9Oalf6vm7s3e6fqwPKbpNglAAhMqeQaV+sH6wEkPdXXP+yYzUrvV83dm72NTiwn2SMAKdJ/wAiv7K71fN3ZzCejXGyZgYkSRycDLq3UCgGCrbzbtUew7LsfUWDZY4m5PLNJGT1ZqVvq+buy9PZvR40DLmMm1TFHGk91zyjaBdpqYFXvZcb+Z3SJtDV0ym8pk2kY4pjAMAD0uYkQpQqXMxYmE2nozUrvV83dkmiidRB1UvdXPvgd1xIBmdelNS1hkzwPoyj7Lo2iZHqzUrvV80W4lrSnNDgZsYaRJMd1zpkn1QT6J29BywPU6alCdDO8X2X6Qo+tko2BsItcsro+oSS3WjM80rCph2w9Galf6uVtuxu3wPhRqqZBGUaj6jFiQM5cIpFiwOrRr1wqKvM8Lvw6Vqs3vhGHaVUUxwuJNMzWYsP+0/WWbYcsj6ROdp2PqM+D6M069p5K/RxzPxmqxRzG7TJHqqXFYfMLiO2CUFvUeR6Y1K31fJ3ZOnvvJQIMTH3RUScAk3l0qi4R/IH8T5s1K71fJ3ZtP7FYJIhojwhf8AjiiLoyUrvV8ndmjNiSCDBBNT/f7H3PZpX+r5O7N3u57WOh2qWVbTSkA5Nd/B/2TwJ51LU0n03E6tH2jq1ZAGVsyI1MfE+7yzKlqImoh0bXqzToY2n90neLHJ3CPZbkaOh3qYQAB+mh8D6PNmpXerlW1KFeqVEVJ71/0n1x4c0yl8o+zCkU6Im4N+FWH6s0flGACegzYdoHJA8D+p6Jf/lM2alf6uVbe3PyyP9ZRASCNADvC0T+Pr77xhquSd5Zpc56GUc1m1v9V7yefQDl20cZexUp04P1Ev6c1K71cq262C/WYjop2pYo47lTqj/kB/JoZT0WRpmc+lYw6IvG5aGtXMeQ+s4di+/HlkgaBtOz9RYmlvxk0X4Mf+U8+alf6s1ZxJpRo4OVHOHHhH0wkRxrHgPWdjsLnND83Hs9IZC7MdxJox5H6Jav+LNJO88tHh1W0olEzdOmRle4LE6uLaHZbyY+oBnI5J4wPhzUrvVmhYyC7CKt5nFTnXF0vMTkZ94Z1fbM0rObolrUSn/ucDxga6TY1lyRsux/YqMwg/KVkxdsoxP4f6mUY4I7HepUTRNH/rl8MmpX+rNG1IrmA8h3Q+dTFhOgQf2dtvcyFJx+w61rCefINd8wMN07OT8K4npzUr/Vmpbv46hfYEfWXNWOR8T7poOMqhcWdhyI4KeLe9t3BjsvSZhUp0dfbL6p6c1K/1ZrDVVtZqeKJ+6KySAbi/HvksSzznWMMVsMVYQea35/f/AE5qV/qzUtpXLoW5RhfwNbcRR8h+YuujjpbGYN4ggwBN+W3/ANRalvKs4BLQxS2MqeIZOgnOmzhnXWFrDzDt4gfZzUr/AEZrjaJRVQ7H2GWWD5DX8yqsPK02ZtbaBtd1HRpUJBCjPq9OdjxHS1A//xAAoEAEBAAICAQMEAgMBAQAAAAABEQAgITFBUWFxgZGh8BBQscHQ4fD/2gAIAQEAAT8hm+KxSf8AxZ3+l3zRdwHTkJLsUj+aRNXPLZpq576wMEdmH7fyeqbr4QF7pbdMyV98L8VN6V+pHEB/JaYNnbj1q2ivNB8ltg3zXsB94Gl/i83e6g58FW1iOd9RL43TyXsVuq1e0vW8G37QUAX+Lm+c7XAr4hY0O8AKOtkaAiUjNo1hqMLmFRYzQY/kXQa8h3R/H4yN/cGa8R3NeJhF1jXBrDuN5H3QDXzXsB94Gl/i83W6uvQBzQMKW0s3Uxq+Sj2En7ON2+jrXvBaAmo04DEySJxsNoPIS8F/e6uoaR1r93qSXxg7ZcNb+G9iHP+0nkPeIAhBDdAwDMYqMKBubwwD5xcScd5+Oh7a97xX5mEPeJpf4vN1up60QfgR6Lk5g+0qK/K6N0kRCgwGPFUknUEVAUAMzDUEQa0tjkxCSe0pejRGoJI1kD64ea4/O0cg11g/wCbu3/2aX+LzdbqI7PGOnpvFk1VxZpHxbLFVADXQMp6gyOQVRa2Pngk5XMQTSSdJVdAEoYFMd67wjkSR7tROEg0+kPeJpf4vN1uoTJd3u8v6HTv+NBVY0Ff+raWOnaslf1Q2W6sp2u3VM2uZ7l8AUAK51BUy9xY1KbQAfIPaOMWoKXSocZD7jpMv3aX+Lzdbq9r9I1r83a9qjk6C8n4ZkkSKkKjV7rL9J68LVC5u0Jl08UEQ4X3lg3Qmf3aX+LzdbqrY7i/y0NFgLbaSDHG3fQCCtG+f7twolbULEbJLNwD1e0k8M9lHLSZ/dpf4vN1uqn9KbwBElCV4Ylk649bJ7xPD7tL/F5us1KSmKg/IjaeouSXfXLxkIimCs+RyLgDT5ckKM9Y12NAi58t/aQ+YaVw9be/ITeApH4vN1Oug4sW+j2EQbXq1F7jkSRSYMGFGl2MsWoHaxYvr1DyeEeJpf4vN1OuaYPKNM1ABKoBfxAsytOohTSXt0jS52ouubRM8g0+8V+Zp/v3nGv3CC1eRTT0cVxG98icVQrppVd4MiHCtjSJ1CM9Jl8InRWo5GBfuDvzzT3/i83W6j/jwPRCCJ1BC1U/W1ozv2B2YO5Dh1PExk6wjPeNT8n9+Nt9pD5h+JT3/i83W6q7qzXuNTbYGkd01ghhMspO8hFq5YjoT0TqaMn4gq1hkDRd7rxO5b8QaR+LzdbqOt2kxyBsWOx9ASoPS6lgI7xeBDJd1jj+TQ26ltiVVYr9ym6iR64jheC/v3+f3aX+LzdbqPq2H3G/hBdbuLKwZFSB69JEgA7rcfP+F9q8t/k1mnWa8Tw7DTeB+LzdbqNWVkzVswQ23ttdqHLqwCrAtPNboT1OZFqEA/dpf4vN1uou3cmmDElEAwxYNcjN+9oalQgb8STSJx1LHSeI4392l/i83W6wDAxt3kjlpp9tI99TZYkb4LEHgy5lx3mXOfYSPHptvZprUzNJRHAyMhc9Wqra6/q1ZeZ3n97YRJQ8IGDYjrwk/i83WzZ2r3OjEpJU6ycR/0tWTu7PC2cDvr+68boPUkgki8Te/F/e6P+LzdbqI97MKmTVv3zxUFhrljbY7kxOTb6rFtPKJOkoOYXb1ghAmLXLLbveH1P7tL/F5ut19AsQDOiYEpjuhKTVD0U13vFY+n96l/i83W6/hWV+l/a50YkZcj7zqr6Y/DyxC57fYw2bfWOXKaR7+7S/xeardYmGKRS81uEFSoaaxrDymmdN5cHhN02kuUPCMvKuH/ANpf4u10pJQUks3ucLiRsAAsXVc5TMNNdMquyZsXUweFTu8crASclPGRzlu4d5K/1flKstL/aX+LtdM/OKjVsnSnKyYFi/dRtK4s8rXtPPbMWkDUS5px4fowEM3ulQ3LQDM7QuJmGtBpcsgP8AXb+LtdBOqhX5XxPk9UQVFmhAx9ti2N8/Oi9v3bfjq9VFm+MIClXtyi+s2xcRZIJGQ1WLb42pJLgta7Es+f7bfxdroUqqTEUHmxPM8GBAiw8WJ0AqlC59jIaZi2SlsWFxzK4xB/gkfajDyCV+FDzZ1AdhufOVjWoy7frt/F2unR2txKMtHtO4RkHYHlKw7AMo59JyR8jT+nux1SK8tzpI5STFXUooi1rjUdNhD3Dp8yORQpsR84k7skFOm2QYxUMwniu8XbXxdrpGTMEb75DBqKGpCLBVG7GzUcefpAmRqoBKwpuBVPAtSryHDIuKQqBlx7kixToNhBEijSATeIP2F/i7XSgyScQK1XUctWjmUhyMlL6BOZbIjLLwZgGkU9lh6qO0uoVo2gxc8osRYh9JbXU8hoUxl9SBysW6kMTjGPc7Wd0i09oP8AxG/i7XScSoWkMWSYB1ZRSdE0nQWuvM7fFoO8l9TjxAuFvNY06DNFIJS2SgBQ8tHAvNbqRN9NgY+p4idGkotlbo7wTrO5eEyyKbgqGdQ+g78cUVc2ZGVNF2+eP4XbaWCN2pQ1LiOozNDADQMQlRJGCB7eYPc1LjzIPbOLzKCp4Sdw5aQs82jHC1DRVG+04V44VMKiAAoVz5k5p7/xG/i7XQCRyFFTM8cEIVYZAyLTbJGkdJwHGMQRYA2H1+pu1ADZB2YYpUtGiG9e3rJyUXyGe28lYc+qWsYVVsSc6gHcVabJIcZObg4cqHnypwvz19i83UUngN1HQIunRrDKBJBABB9w4NcqraCSdOBabEXYg3QqrkJWJnZh/sS8OULyXSGpbKDT3/AFl/i7XQDDnIIWT8KZpEiSSBIkCeQKps6ckl31tQ1s2Z6iG05BFTD8IeLt/WkjoRnL6iY5h5NC8OoxMzrQ2ghdYLTPeKz7FB4AC4/rL/F2s7xFyCjB8VKQQaA+ro9NDZDS40j5XzUcV44wVUHafZW3tY1nbQhhSdSuY7zWT3vQN8WQqveJGg5jVZVbHiBDWd7rCLJUSriAKXpzfL39mxrWnY3grmLPhTrpvQD/i7WZ08yCqSlqVSpklJCA5Op0pXCtuTscrMGy4lbzUOAQoUopVEjgYdmUolwhFZM+9Ee+V4jMR0v3lqqG/zG/i7Wdh+SiqkafWdduH3TywJkJvIFmOpL3RopAYpQ1D2SD5h0YfZoR7mFKdrHiJVi6hJtkp+uP4XazltwRJQAs61HMIrIJ1DEoKVLDc2AQgjR5dSVhiGKIo6O8hczN90h0ZaLTwzLxpTcayLho+D+lt/F2ulQqdOj2clAi0SgoYHaT3jAk6IS4mTFmSNFAVbcWOYDWKwywP8ABgGqInEmg94oYNTr4Bqi6ikog0gg1m65k0jV7gC/D+ov8Xa6a8zVlEdFoZAwgRGKkSLM5WAj67HJ7bYXk9IIJKBMPAMOeSo5IeYsDojpjB6J5KF48Ssej9vF2ulddGoBCIH2Xd8wJmPAgWxudJXR5/lKcBDBS2JiZg5uV04kixEZFR3jPYycD1vXbeLtZASjPZRiqiZxSKDAEaOiROyBk0QCHjl46uiWTxGCYxQwbc7V02iSfvEVPVs73jgiF24uL1X2mkhsgTo/Aa7bxfHLl9b/1L7PCGgJRKqCDOyRYVvdKxMhkcGYlwmsNpM4JB8dVNF1cNbleLi2dVi6l3rjQniLxI4zI6SaRrr+ov8Xa6dOCdSj6KoS0HV7mHMxQQZIIKc+NNZ26Rok5gASjgeHGRtZBHGwhsR6nAee2eAyGC1sTRosNJgF/rL/F2unQ1ShVI8AkmVmLs8xZVALaWEJ0ggMoI+7+nJkgUkisDUCCQCGQNlbZKjnEalBlcxPFg0joX+sv8AF2unTOwtBAwZB1HEAc2Bk8h54BSGMKkZKpj6NCw0e4kRRD1WYFZZSqmAqRqB69uT7zQLKTrf8AWX+LtdOW5xGSyQzRQ5qAUp0AGjS46GCxFJHcxwKJmpZG4lpR3ogMg2kr8Rlf81aC3jONspJz7SCgsMDwGHLl9P//aAAwDAQACAAMAAAAQLEJyjEHdONNMMCmmcqTJEIFQAAASAIGmydECcmUUxc5FNMMNCOMPNNNNMMMCCmStDEAACMGVNgQalcnQmJdNNNNyTJSgiQAAAAAACEjpmCIiiudUGuaZNNNNMVRkJSiQAAAAAAAACoQxMxxqpwMDNNNWMUiZaClAAAAAAszEJTNWBi3dVJMNhTJaZGaAUAAAABmZAEzUjkxXdnKYhDNiJYklQCAKAAs2EJnqtLFhAlJZhBdYmdJNCAAiAA2cwRmZUqSGoSNMGTiEQKACoBAJhChcq1JUVBV8Jg4JhhjiBBNEAAECMydnNKSZkoBIAAAAADDNNNBCgAEzEyJSWIJmZLBM0gAAAAAAhghhECBh1fYUWJOypgAAAAABkkSRNEhJJTFIzYGAZkkkAAAAEcqfTMkccSTBWEckAAAAACGRCYASBTOQN3EQmJAaAABOmRBJBJncaWaSaUiiJBACAA6ZGIW5AQRTEhJiQAAAAAKAZMmIieMYLSyCQZAEAAAAFlVwRkOCawDMEADNNNJKAAAbNGggkqME2ZmZJHQAAAAAGW1C5gAZMkpmaqTmgAAERyWbmgFIk1iriiEAABJNNAAAEti9CRomQ0xUGAEJpkkEIgAAAAAAAhvwmKBm8xLQABEokkAAAIEHM0hTJOVJOJEmAUAAAAAAlMLtPrnoasSkZkAIECpkkEIgAAAAAAAx49wWkCtkWoRSIEAEkkkkAAAAAAARBaJUXKCbGG1glIkkAAAAANh/wCRUyXAJWmGAgkkAAACRJRJJI5UTRMDMEAEkkkIAAACIqQyxWqIEPLXjQ0kAAAAAACSIC0IcBMJYwAAlQCSAAAIAAAZAQcT/cyXBBJkCBAABIJAAAEARJ2FSIZBl1DXOVAAABMwIgggAEAg1ik3cMpA06uAAAAAwkgAQAACIBBDZ+vKLGAMxeBAAACyH/ABCCwYoU6CRIgACAWi9gJmBACAAQB///EAB0RAQEAAgIDAQAAAAAAAAAAAAERACEgECAwMVH/2gAIAQMBAT8Q/sMMWKCcz5U/VCrcHrnMMOI4Qfw/a42lYOpJqovBsj2kzqZVuaPABeCk0N23cKZ+RN/iG88+0qFJKemA5aQzbadCm8gwh/AH6o+RMldcPtgbjuVqLCC41LzVfKqWflAdBqNw5ttJ9Du7QwAySCMAge56l86hwACM05eyDaw9q6vVEq5eoNPZlAMvV2y7u8/3ufc8JlxgQ09sqhkkDyOsSLBkYxUBGfmXOx//8QAIREBAQABAwMFAQEAAAAAAAAAAREAECABMRAgMEFRUGFxgf/aAAgBAgEBPxD+eUrVcHByTAEOLYmaDOAcmMg7lSL4H2v8AAiZmGCFy2b33U4bX8QPU3xLMTnvnRUU+QnI8cEXReppLjTRF5yUHjE6sNLLvRiBkd2YA3hvCSFfBQUmBoGIaMJHCJCj2N8xRPIRQj7RzADD3otN4Gdj4jMDdKusnA0g/ZQmmBx6K5hvwrFGcFeuZWCbnhn//EADoQAQABAwIDBQQCAwEBAAAAAAERAiExABBBURJhcYGRoSDB8DBAwdHhIFBQMLHRQmLg/9oACAEBAAE/EH48q9c/qJPwAnjDTV3hoFV2lhSmNkSKalS7TQrMB8n+T3KKQuNU/HFWW2FqPsJB0IuF8f2RGpIsfxY7q68P21ctHWJCkYhPdUEUSIKdMgNWLfC26+f0fG+uI3Qg2BckBGIClU00jeM1M3rxY5dGpeQY0QrrZHlfH4+RZber3JAdIZMNYQ6hTwQwSO+BAmx4TjG7NSj7bDze/Rokix8rFA6DpmhcWzfLqBY9fLKBZllQJTOEiGInSxeu0d/I8j41rYKwfAmU5s7PCHaN6Ir8a1H2oJpmRoDXwxKlVSp2pU2tzRqj2MmLAOgXSL0Q1+Pp3qbFhkMUsIXlw5izTuYl2eMKkJbNMUcrlqQx1BJrxEtcaNwPzJDH6xzoiEQE+x0PwREPEqBM0nCBAjrWCUqDQpoai58sgIBgHTMQ4nUEZ5NiWUCvdWaInidZljzjQbKGquH9HqU6o1bGkkyTtQz4DiENq/Xj4G3zLQ3GJwKtBP7GA25RDZR7G0vSUpadSL7Co6ImdSjtF7PbLjkUY4jlDVA3JTn2DdhDF+5pWUdAKLLiZLlfQuPYejEJpz+SiFsITGMbRkomYhArHZmLMciFSTTSEkhfS8eQHmk3Tta1TgNBljFKzfD57EBCxGD5Xs+D1HSrQC1NMhi5aHHUM9VGIP5gClbyiz27x2R2F2gTA4ipX+wiyvGVoTPZxwReHbOtVBJj0w7Jk6VArYapNpDcYl25QaxQRaTkoSf2biYNxMLdFBawHS8Ow5KYHQYxAVUOMuDUwxigXuEH0EtPNIB0qGIPW1JkqKdl2+OdEzFpwMzeHUNpnJPUm8D16v4ZXvbbSVrR/k3vnlPMOmZ+4R43jnbDBf5g3+FrOumUeoP+o+D5GXdRqxcCyWFSIcBAREZVaARv8AyKMUdAijHusIrrNuc2vQVe8fXgLhnqmfojiqeUY1u8IPoGw1mbd8c5vBTPM6YrSg8EFvCtSwr48eQn+CUIa/1E9WlLnCgp2m28oGWWM6IN94Q2KMcB9qrbzIIJraY07DqYFqVqmMDJAwZldgQB2ghOyLrFNGkEONFMCIn2i0RYwRvdxtN8zzAgl7ds5xPpnWOqGkvqlhULfFYmsQq6LoE4HCkzuLx6LmtNlfDjBMcKAWIBc7DSSDxQ+hbDO/wDmPPcNst7nESY/dEAGBxvAsLgNMrpXFxFBOWrbiEj/wBcpPE8S/FgARjuXbvGp7JLwPPwPCTtO8YDKUTZiScQwgD0Ix2VeXL7N6+NYKTKOAKvEwxG4HlmLLmR89z0eVOu+zLhaI2llIJB0VsAedQAP4Mp5uYPp8wY3EL+LxXweXf8A1lJnSowxYL+N2s+/ev8AFrfEuKX41Lj3WXK11M3r1txCJCDdgRsgWW7+zRF5HjzV6+iMgRwEh70UEBwoANxWsYOGNbElboZi6YphQiTKK1hKdhfMtH1w6M1yB5AixgZhpVLj6IojeEQmIvXqxch6WnMqDS8JIRLGNnrXIakVY5brfM41GB8yuAyxbpUO3rt5JkY6p7EDHeLJ/xT34X2kMDVahZXznIIM5Bcs3O5sgA+FGjJCtu9utdTKukwoLf9QIV+UekpaGY89pZF0/e2hdN6FiWeSA3DYZtrBX4gXiv4rOT/X43w9qt4GnPF6f2r5dWRbq0M4xPVlcHnZILBVGsTtncycQFntJY3XSYUSNp7DE9iNIIAGHW0W2AVHuXFp/KTAQ2mrRYwYxU9nCgbEwXLt1JT68g+CdgdB3bRZSXw9jyii1SCio5UOcbaFwhx4HUcCAI/HHh9G4x/D8mvQfS/8ATbYIQthghn2jGmMEgj2xRdrwLDHG7xLiFBGQBvAkISLDlA+eAR+PYw3sc+FMtJ7nIpUTfFA5OLPNbMcVA1GuF1bqN73rB/GYr6f3mHtYQGs3FM/Ece93L9pGJ/RrmTeR0vylpRxm+wkZzsFxGdrEfMZ8JIIMw6XO4V7iK61uD4GPi4xuJIPiW1Ki29WEULCrvGXpALhjOLYlHmbKcRU1/bkkJb2k82lGIG0Ev1Ewt7feOCuGBB1df1G4XnWZXTJoA1FqgDaDiPePHdOSuX0ZljBcA2nVuM1F6WXEEdMRCBEr+74acg6DdAmOFyILMa2kOwjQbxhjxpeWSH9Y0YA19Ou3Jo6QnSNDnFukQgZl3quRgmw7JQHETPh3lxEsMFKtPGKvpMmbiiIX3Ehj7XFjyXHbIGlwofF9my3PM3aJpCd/G3xdDXY9r3Z9lZOaT0i4YnDyFm5mn1+h/WzkqLp0MgjDT2aMTnxqYeTiDXkOfk5Wb1lgzSqklhdM5yVZNvAb8C2ZbK9ZKwD07NtVhudG50TG4NWKPLcWezHlBTIV4jP8ADRe46vGdGxWkFVYgWIQnwfqByEkGxkSr9kpWp1TZKNo30KDxf8A0azL9GPzS2mgKiJgo4BLA75s4QSWAsTcAYiGGnTgV5Kmw/EDlHFAWtsZEwRuVzBBuc4GArMKm7xIIkgX7u8PpMUEYUWLZURwFODQ2TR6Qgt2bmV0MoQmgqlhoBLIgl9t5VC6QRQH3i3hD3qYURfwBoZd76Uga69otZFHPwS57xpCEsIg2N46x89iYyoTefjQl+o5lVHHDBBjAAHhAt4sc2of3saiF8JkaEDBwhlW77gwXawOhrv4mIcdoKWuTQqSrY4jiDNOW9ED2hDC1oqSTbKVFL2gXxjCnsYw1wjl9GCUit2wUpoStWhscgHSi3n21EEZZ0Aqi4+FRiySvYdOYe4d1MVd3a2nKxCArAYOBwFrsb2DhhzY2RzggjYsPrUn3WDV4DaFGlXSgO1cdUC/Z4/fKOg1+08QaXALOd2O7D9uK1MLIKjc4iq2QC3GWzNJnExoDqAbFExFDnUP4epttpdPQ3TCGpL6ui7JUhIQdY4FZNTLI0z8+RIljdBSFUTNfit+L6WNodqmNGND6jdDuR/RINX/KeYQ5nkZO+juaM9tM9Y4qauFsi+f3B2obJ4pjbQRmIelV88qhUK+HG/IK5hijurqcV7pefqqfIW5BVTiJcH7kJkmj5DlYkcrSS7s4SHLgY0EKaMJenbG+otJVVA1VBkyI+rHhL9Zq6oq2zv1POWSdGPFlu3bSIW3MsGBEOCf3jMTyK/95iiVA05hXimZVabMiKletm0nHR09+vAXg4dLgGCEsEJPmj2od55IXUeV6Yu19OqEmMdQcxKT0Qcxl3mzh6CEY70r7xE3UxEKkQuCUrxUuMNvku11PDLh1fuDrsuGPdGlB8zrrtBzH4Skw8v/gntKNKvQMtQJOzS9xZtci1A4CS+p/2lbGHlUqf+Lw/w4nCj2h7iH5EuNR5Wp+Bm+zbM0zSrCXSBobRaiH7jPi2nbiHvUKuQTlstOeoyjrH4C4CWeZEdxpPDrMw2Zzwhmcdd9Tl3MaNY+QEG+VoX02BG0U6H/2Q==" alt="白人女教师带领学生进行英文互动课堂" />
+          <figcaption>互动式英文课堂</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="why-us">
+      <div class="section-header">
+        <h2>为什么选择我们</h2>
+        <p>
+          我们重视真实、清晰和长期成长，不用夸张承诺制造焦虑，而是帮助学生一步步建立可见的能力和方向。
+        </p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>个性化规划</h3>
+          <p>不套用单一模板，而是根据每位学生的背景、目标和节奏制定适合的方案。</p>
+        </div>
+        <div class="card">
+          <h3>语言与申请结合</h3>
+          <p>不仅关注申请结果，也关注学生是否具备进入海外学习环境后的表达和适应能力。</p>
+        </div>
+        <div class="card">
+          <h3>透明沟通</h3>
+          <p>清楚说明申请流程、服务范围和准备重点，让学生和家长更安心地做决定。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="section-header">
+        <h2>服务流程</h2>
+        <p>
+          从初步沟通到方案执行，我们希望每一步都清楚、具体、可跟进。
+        </p>
+      </div>
+      <div class="process">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>初步咨询</h3>
+          <p>了解学生背景、目标、时间线和目前遇到的问题。</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>方案制定</h3>
+          <p>明确申请方向、语言提升重点和阶段性任务。</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>执行辅导</h3>
+          <p>进行课程培训、材料指导、面试训练和进度跟进。</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>后续支持</h3>
+          <p>协助学生完成申请准备，并为海外学习衔接提供建议。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-panel">
+        <div>
+          <h2>开始你的留学与英文提升计划</h2>
+          <p>
+            如果你正在准备留学申请、英语考试、英文面试或海外学习适应，可以联系乔乔文化进行初步咨询。
+          </p>
+        </div>
+        <div class="contact-list">
+          <p><strong>邮箱：</strong><a href="mailto:2364579855@qq.com">2364579855@qq.com</a></p>
+          <p><strong>微信：</strong>Luozhu_JuJu1204</p>
+          <p><strong>电话：</strong><a href="tel:+8618942063729">+86 18942063729</a></p>
+          <p><strong>服务方向：</strong>留学咨询、英文培训、申请材料指导</p>
+          <p><strong>咨询方式：</strong>线上咨询为主，可根据需求安排进一步沟通</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 乔乔文化。保留所有权利。
+  </footer>
+</body>
+</html>
